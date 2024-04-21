@@ -1,17 +1,134 @@
 body {
     font-family: "Roboto Flex", sans-serif;
-    background: url(/images/bck.jpg) center center no-repeat;
-    background-size: cover;
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 h1 {
-  color: white;
+  color: #333333;
   font-weight: bold;
   font-style: italic;
 }
 
+h3 {
+  color: #333333;
+  font-style: italic;
+}
+
+p {
+  padding-bottom: 2rem;
+}
+
+p:last-child {
+  padding-bottom: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 95%;
+}
+
+.header {
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.header a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.navbar-item {
+  padding: 0 1rem;
+  border-right: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.navbar-item:first-child {
+  padding-left: 0;
+}
+
+.navbar-item:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.navbar-item a {
+  text-decoration: underline;
+  color: white;
+}
+
 .content {
   padding: 2rem;
+  overflow-y: auto;
+  color: #333333;
+  flex-grow: 1;
+}
+
+.content-error {
+  padding: 4rem;
+  overflow-y: auto;
+  color: #333333;
+  flex-grow: 1;
+  align-content: center;
+}
+
+.content::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.content::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0.25rem;
+}
+
+.footer {
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.error {
+  font-size: 3rem;
+  color:chocolate;
+  padding-bottom: 2rem;
+}
+
+.error-resource {
+  padding-bottom: 2rem;
+  text-decoration: underline;
+}
+
+.btn {
+  padding: 0.25rem 1rem;
+  border: 2px solid;
+  border-radius: 0.25rem;
+}
+
+.btn a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn, .ghost {
+  border-color: #333333;
+  background-color: transparent;
+}
+
+.ghost a {
+  color: #333333;
 }
