@@ -72,28 +72,7 @@ app.get("/weather", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.render("index", {
-    header: "Error",
-    title: "Not found",
-    navItems: [
-      {
-        text: "Home",
-        location: "/",
-      },
-      {
-        text: "Weather",
-        location: "/weather",
-      },
-      {
-        text: "About",
-        location: "/about",
-      },
-    ],
-    type: "error",
-    error: "The requested page was not found",
-    code: 404,
-    footer: `Made by: CyberiXUA: ${new Date().toLocaleString()}`,
-  });
+  res.render("index", getRenderErrorOptions("Error", "Not found", 404, "The requested page was not found"));
 });
 
 app.listen(3000, () => {
