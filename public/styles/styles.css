@@ -86,11 +86,8 @@ p:last-child {
   flex-grow: 1;
 }
 
-.content-error {
+.error {
   padding: 4rem;
-  overflow-y: auto;
-  color: #333333;
-  flex-grow: 1;
   align-content: center;
 }
 
@@ -111,10 +108,10 @@ p:last-child {
   padding: 2rem;
 }
 
-.error {
+.error-title {
   font-size: 3rem;
   color:chocolate;
-  padding-bottom: 2rem;
+  padding: 0 0 2rem 0;
 }
 
 .error-resource {
