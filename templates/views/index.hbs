@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>{{title}}</title>
+		<link rel="icon" href="/images/icon.png">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
@@ -10,12 +11,18 @@
 	</head>
 	<body>
 		<div class="main">
-			{{> header}}
+      {{#if header}}
+				{{> header}}
+      {{/if}}
       {{#if navItems}}
 	      {{> navbar}}
       {{/if}}
-      {{> content}}
-			{{> footer}}
+      {{#if navItems}}
+	      {{>(lookup . 'type')}}
+      {{/if}}
+      {{#if footer}}
+				{{> footer}}
+      {{/if}}
 		</div>
 		<script src="/js/index.js"></script>
 	</body>
