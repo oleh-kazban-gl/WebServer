@@ -71,6 +71,25 @@ app.get("/weather", (req, res) => {
   }
 });
 
+app.get("/getweather", (req, res) => {
+  const { query } = req;
+  const { request, location } = query;
+
+  if (!location) {
+    res.render("index", getRenderErrorOptions("Error", "Error", 400, "The weather location should be provided"));
+  } else if (!request) {
+    res.render("index", getRenderErrorOptions("Error", "Error", 400, "The weather request type should be provided"));
+  } else {
+    Weather.getWeather(request, location, (response, error) => {
+      if (error) {
+        res.send(getRenderErrorOptions("Error", "Error", error.code, JSON.stringify(error)));
+      } else {
+        res.send(getRenderOptions("Weather", "Weather", "content", parseWeatherResponse(response)));
+      }
+    });
+  }
+});
+
 app.get("*", (req, res) => {
   res.render("index", getRenderErrorOptions("Error", "Not found", 404, "The requested page was not found"));
 });
