@@ -56,19 +56,21 @@ app.get("/weather", (req, res) => {
   const { query } = req;
   const { request, location } = query;
 
-  if (!location) {
-    res.render("index", getRenderErrorOptions("Error", "Error", 400, "The weather location should be provided"));
-  } else if (!request) {
-    res.render("index", getRenderErrorOptions("Error", "Error", 400, "The weather request type should be provided"));
-  } else {
-    Weather.getWeather(request, location, (response, error) => {
-      if (error) {
-        res.render("index", getRenderErrorOptions("Error", "Error", error.code, JSON.stringify(error)));
-      } else {
-        res.render("index", getRenderOptions("Weather", "Weather", "content", parseWeatherResponse(response)));
-      }
-    });
-  }
+  res.render("index", getRenderOptions("Weather", "Weather", "weather"));
+
+  // if (!location) {
+  //   res.render("index", getRenderErrorOptions("Error", "Error", 400, "The weather location should be provided"));
+  // } else if (!request) {
+  //   res.render("index", getRenderErrorOptions("Error", "Error", 400, "The weather request type should be provided"));
+  // } else {
+  //   Weather.getWeather(request, location, (response, error) => {
+  //     if (error) {
+  //       res.render("index", getRenderErrorOptions("Error", "Error", error.code, JSON.stringify(error)));
+  //     } else {
+  //       res.render("index", getRenderOptions("Weather", "Weather", "content", parseWeatherResponse(response)));
+  //     }
+  //   });
+  // }
 });
 
 app.get("/getweather", (req, res) => {
